@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>冯徐名永 · 数字庭院</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+</head>
+<body>
+
+  <!-- 星空背景 -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- 导航栏 -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <span class="nav-clock" id="navClock"></span>
+      <button class="menu-toggle" id="menuToggle" aria-label="菜单">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">🏠 庭院</a></li>
+        <li><a href="pages/poetry.html">📜 诗集</a></li>
+        <li><a href="pages/diary.html">📖 日记</a></li>
+        <li><a href="pages/artwork.html">🎨 画作</a></li>
+        <li><a href="pages/papers.html">📝 论文</a></li>
+        <li><a href="pages/music.html">🎵 音乐</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 主内容 -->
+  <main class="main-container">
+
+    <!-- 英雄区 -->
+    <section class="hero">
+      <span class="hero-ornament">🌸</span>
+      <h1 class="hero-welcome">
+        Welcome!<br>My dear old friend
+      </h1>
+      <p class="subtitle">诗 · 画 · 思 · 乐</p>
+      <div class="hero-divider"></div>
+      <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto; font-size: 0.95rem;">
+        这里是我的精神栖居地。<br>记录文字、色彩、旋律与思考的交汇。
+      </p>
+    </section>
+
+    <!-- 花瓣导航 -->
+    <nav class="petal-nav">
+      <a href="pages/poetry.html" class="petal-card" style="--accent-color: var(--accent-rose);">
+        <span class="petal-icon">📜</span>
+        <span class="petal-label">诗 集</span>
+      </a>
+      <a href="pages/diary.html" class="petal-card" style="--accent-color: var(--accent-teal);">
+        <span class="petal-icon">📖</span>
+        <span class="petal-label">日 记</span>
+      </a>
+      <a href="pages/artwork.html" class="petal-card" style="--accent-color: var(--accent-lavender);">
+        <span class="petal-icon">🎨</span>
+        <span class="petal-label">画 作</span>
+      </a>
+      <a href="pages/papers.html" class="petal-card" style="--accent-color: var(--accent-gold);">
+        <span class="petal-icon">📝</span>
+        <span class="petal-label">论 文</span>
+      </a>
+      <a href="pages/music.html" class="petal-card" style="--accent-color: var(--accent-mint);">
+        <span class="petal-icon">🎵</span>
+        <span class="petal-label">音 乐</span>
+      </a>
+    </nav>
+
+    <!-- 最近更新 -->
+    <section class="fade-in">
+      <div class="section-header">
+        <h2>✨ 最近更新</h2>
+        <p class="section-desc">庭院里新开的花</p>
+      </div>
+      <div class="content-grid">
+        <div class="content-card">
+          <span class="card-icon">📜</span>
+          <h3>《春日偶成》</h3>
+          <p>云淡风轻近午天，傍花随柳过前川……</p>
+          <div class="card-meta">
+            <span>📅 2026.05.10</span>
+            <span class="tag poetry">诗歌</span>
+          </div>
+        </div>
+        <div class="content-card">
+          <span class="card-icon">📖</span>
+          <h3>五月十日 · 晴</h3>
+          <p>今天窗外的梧桐树又绿了一些，阳光透过叶子的缝隙洒在书桌上……</p>
+          <div class="card-meta">
+            <span>📅 2026.05.10</span>
+            <span class="tag diary">日记</span>
+          </div>
+        </div>
+        <div class="content-card">
+          <span class="card-icon">🎨</span>
+          <h3>《暮色》</h3>
+          <p>水彩习作，捕捉黄昏时分天空由橙转紫的瞬间。</p>
+          <div class="card-meta">
+            <span>📅 2026.05.08</span>
+            <span class="tag art">绘画</span>
+          </div>
+        </div>
+        <div class="content-card">
+          <span class="card-icon">🎵</span>
+          <h3>最近在听：坂本龙一</h3>
+          <p>《Merry Christmas Mr. Lawrence》——每次听都有不同的感受。</p>
+          <div class="card-meta">
+            <span>📅 2026.05.11</span>
+            <span class="tag music">音乐</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <p class="footer-quote">"一花一世界，一叶一菩提"</p>
+    <p>© 2026 冯徐名永 · 数字庭院 &nbsp;|&nbsp; 用心记录每一个瞬间</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
