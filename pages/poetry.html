@@ -606,9 +606,21 @@
         localStorage.setItem(STORAGE_KEY, poems);
       }
       poems = JSON.parse(poems);
-      // 迁移：补上缺失的 type 字段
+      // 迁移：补上缺失的 type / cardImage / bgMusic 字段
       let changed = false;
-      poems.forEach(p => { if (!p.type) { p.type = '诗'; changed = true; } });
+      poems.forEach(p => {
+        if (!p.type) { p.type = '诗'; changed = true; }
+        if (p.cardImage === undefined) {
+          const seed = SEED_POEMS.find(s => s.id === p.id);
+          p.cardImage = seed ? seed.cardImage || '' : '';
+          changed = true;
+        }
+        if (p.bgMusic === undefined) {
+          const seed = SEED_POEMS.find(s => s.id === p.id);
+          p.bgMusic = seed ? seed.bgMusic || '' : '';
+          changed = true;
+        }
+      });
       if (changed) localStorage.setItem(STORAGE_KEY, JSON.stringify(poems));
       return poems;
     }
