@@ -722,19 +722,32 @@
     }
 
     // 展开画卷
+    function openScroll() {
+      const closed = document.getElementById('scrollClosed');
+      const open = document.getElementById('scrollOpen');
+      closed.style.display = 'none';
+      open.classList.add('show');
+      requestAnimationFrame(() => {
+        updateTrackPosition();
+        updateArrowState();
+      });
+    }
+
     document.getElementById('scrollClosed').addEventListener('click', () => {
       document.getElementById('scrollClosed').classList.add('fading');
-      setTimeout(() => {
-        document.getElementById('scrollClosed').style.display = 'none';
-        const open = document.getElementById('scrollOpen');
-        open.classList.add('show');
-        // 重算布局（display:none 时尺寸为0）
-        requestAnimationFrame(() => {
-          updateTrackPosition();
-          updateArrowState();
-        });
-      }, 500);
+      sessionStorage.setItem('fxmy_scroll', 'open');
+      setTimeout(openScroll, 500);
     });
+
+    // 返回时自动展开
+    if (sessionStorage.getItem('fxmy_scroll') === 'open') {
+      document.getElementById('scrollClosed').style.display = 'none';
+      document.getElementById('scrollOpen').classList.add('show');
+      requestAnimationFrame(() => {
+        updateTrackPosition();
+        updateArrowState();
+      });
+    }
 
     // 箭头导航
     document.getElementById('scrollLeft').addEventListener('click', () => {
@@ -884,6 +897,16 @@
         location.reload();
       }
     });
+
+    // 返回时自动展开
+    if (sessionStorage.getItem('fxmy_scroll') === 'open') {
+      document.getElementById('scrollClosed').style.display = 'none';
+      document.getElementById('scrollOpen').classList.add('show');
+      setTimeout(() => {
+        updateTrackPosition();
+        updateArrowState();
+      }, 150);
+    }
 
     // 初始渲染
     renderPoems();
