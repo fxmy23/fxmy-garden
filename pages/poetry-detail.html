@@ -602,6 +602,10 @@
           poemAudio.src = currentAudioUrl;
           audioNameSpan.textContent = data.name || '';
           audioPlayer.classList.add('show');
+        } else if (poem.bgMusic && poem.bgMusic.trim()) {
+          poemAudio.src = '../' + poem.bgMusic;
+          audioNameSpan.textContent = poem.bgMusic.split('/').pop();
+          audioPlayer.classList.add('show');
         } else {
           audioPlayer.classList.remove('show');
         }
