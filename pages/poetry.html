@@ -768,14 +768,19 @@
     // 窗口 resize 时重新计算位置
     window.addEventListener('resize', () => updateTrackPosition());
 
-    // 滚轮滑动（上下滚动 → 左右翻页）
-    document.querySelector('.scroll-canvas').addEventListener('wheel', (e) => {
+    // 滚轮滑动 — 监听 scrollOpen 容器（更可靠）
+    let wheelDebounce = 0;
+    document.getElementById('scrollOpen').addEventListener('wheel', (e) => {
       e.preventDefault();
-      if (e.deltaY > 0 && currentPage < totalPages - 1) {
+      e.stopPropagation();
+      const now = Date.now();
+      if (now - wheelDebounce < 500) return; // 防抖 500ms
+      wheelDebounce = now;
+      if (e.deltaY > 30 && currentPage < totalPages - 1) {
         currentPage++;
         updateTrackPosition();
         updateArrowState();
-      } else if (e.deltaY < 0 && currentPage > 0) {
+      } else if (e.deltaY < -30 && currentPage > 0) {
         currentPage--;
         updateTrackPosition();
         updateArrowState();
